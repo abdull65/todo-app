@@ -31,7 +31,7 @@ export const createTodos = async (req: Request, res: Response) => {
         "INSERT INTO todos (title, completed) VALUES ($1, $2) RETURNING *",
         [title, isCompleted]);
     res.status(201).json({
-        message: "Todo created",
+        message: "Todo created successfully",
         todo:result.rows[0]});
 };
 
@@ -47,7 +47,7 @@ export const updateTodos = async (req: Request, res: Response) => {
         }
     res.status(200).json(
         {
-        message: "Todo Updated",
+        message: "Todo updated successfully",
         todo: result.rows[0]
     });
 };
@@ -59,7 +59,7 @@ export const deleteTodos = async (req: Request, res: Response) => {
         return res.status(404).json({message: "Todo not found"});
     }
     res.json({
-        message: "Todo deleted",
+        message: "Todo deleted successfully",
         todo: result.rows[0]
     });
 }
